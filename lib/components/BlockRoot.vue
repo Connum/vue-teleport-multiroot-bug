@@ -2,7 +2,6 @@
     <teleport to="body">
         <component
             :is="component"
-            @eventBus="eventBus"
         >
         </component>
     </teleport> 
