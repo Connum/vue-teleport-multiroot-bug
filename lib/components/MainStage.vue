@@ -1,19 +1,22 @@
 <template>
 <div>
     MainStage component
-    <BlockRoot
-        v-for="(c, i) in children"
+    
+    <teleport to="body"
         :key="i"
-        :component="c"
-    />
+        v-for="(c, i) in children">
+        <SingleRootBLock v-if="c === 'single'" />
+        <MultiRootBLock v-if="c === 'multi'" />
+    </teleport> 
 </div>
 </template>
 
 <script>
-import BlockRoot from "./BlockRoot.vue"
+import SingleRootBLock from '/lib/blocks/SingleRootBlock.vue'
+import MultiRootBLock from '/lib/blocks/MultiRootBlock.vue'
 
 export default {
     props: ['children'],
-    components: { BlockRoot }
+    components: { SingleRootBLock, MultiRootBLock }
 }
 </script>

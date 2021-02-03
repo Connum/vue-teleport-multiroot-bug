@@ -1,31 +1,24 @@
 <template>
-    <MyLib :children="children1" /> with single-root child components (green) transported to body
-    <hr>
-    <MyLib :children="children2" /> with multi-root child components (red) transported to body
-    <p><button @click="removeLastChild">delete last child of each</button> => see how the single-root components are removed, but the multi-root components remain</p>
+    <MyLib :children="children" /> which <code>&lt;teleport&gt;</code>s single-root components (green) and multi-root components (red) to the body
+    <p><button @click="removeLastChild">delete last child of each</button> => see how the single-root components are removed, but the multi-root components remain, despite the parent being removed:</p>
+    {{ children }}
 </template>
 
 <script>
-  import { reactive, markRaw } from 'vue'
-
+  import { reactive } from 'vue'
   import MyLib from '/lib/MyLib.js'
-  import SingleRootBLock from '/lib/blocks/SingleRootBlock.vue'
-  import MultiRootBLock from '/lib/blocks/MultiRootBlock.vue'
 
   export default {
     components: { MyLib: MyLib.Component },
     setup() {
-      const children1 = reactive([markRaw(SingleRootBLock), markRaw(SingleRootBLock), markRaw(SingleRootBLock)])
-      const children2 = reactive([markRaw(MultiRootBLock), markRaw(MultiRootBLock), markRaw(MultiRootBLock)])
+      const children = reactive(['single', 'multi', 'single', 'multi', 'single', 'multi', 'single'])
 
       const removeLastChild = (data) => {
-        children1.pop()
-        children2.pop()
+        children.pop()
       }
       
       return {
-        children1,
-        children2,
+        children,
         removeLastChild
       }
     }  
@@ -33,7 +26,7 @@
 </script>
 
 <style>
-  * {
+  p {
     font-family: sans-serif
   }
 </style>
