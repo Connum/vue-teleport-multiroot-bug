@@ -1,15 +1,15 @@
 {
-  "name": "tentacle-layouter",
+  "name": "my-lib",
   "version": "0.1.0",
   "files": [
     "dist"
   ],
-  "main": "./dist/tentacle-layouter.umd.js",
-  "module": "./dist/tentacle-layouter.es.js",
+  "main": "./dist/my-lib.umd.js",
+  "module": "./dist/my-lib.es.js",
   "exports": {
     ".": {
-      "import": "./dist/tentacle-layouter.es.js",
-      "require": "./dist/tentacle-layouter.umd.js"
+      "import": "./dist/my-lib.es.js",
+      "require": "./dist/my-lib.umd.js"
     }
   },
   "scripts": {
@@ -21,7 +21,6 @@
     "rebuild": "npm run build && npm run dev"
   },
   "dependencies": {
-    "lodash": "^4.17.20",
     "vue": "^3.0.5"
   },
   "devDependencies": {
