@@ -1,7 +1,7 @@
 <template>
-    <MyLib :children="children1" @eventBus="handleEventBus" /> with single-root child components (green) transported to body
+    <MyLib :children="children1" /> with single-root child components (green) transported to body
     <hr>
-    <MyLib :children="children2" @eventBus="handleEventBus" /> with multi-root child components (red) transported to body
+    <MyLib :children="children2" /> with multi-root child components (red) transported to body
     <p><button @click="removeLastChild">delete last child of each</button> => see how the single-root components are removed, but the multi-root components remain</p>
 </template>
 
